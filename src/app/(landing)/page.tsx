@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  Container,
-  Title,
-  Button,
-  Text,
-  Image,
-  Card,
-  Group,
-  Badge,
-} from "@mantine/core";
+import { Container, Title, Button, Text, Image, Card } from "@mantine/core";
 import classes from "./landing.module.css";
 import { Carousel } from "@mantine/carousel";
 
@@ -71,6 +62,7 @@ export default function Home() {
               maxWidth: 800,
               color: "#FFF",
               padding: "0 0 100px",
+              marginBottom: "100px",
             }}
           >
             <Title style={{ textShadow: textShadow }}>
@@ -82,11 +74,61 @@ export default function Home() {
               hooks to cover you in any situation
             </Text>
 
-            <Button size="xl">Get started</Button>
+            <Button radius={0} size="xl">
+              Get started
+            </Button>
           </div>
         </div>
       </div>
+      <Container size="xl" mt={-80}>
+        <Title
+          order={2}
+          c="#FFF"
+          my={10}
+          style={{ position: "relative", zIndex: 1 }}
+        >
+          Popular
+        </Title>
+        <Carousel
+          align="start"
+          slideSize="15%"
+          height="320px"
+          slideGap="md"
+          withControls={false}
+          loop
+        >
+          {slidesData.map((slide, index) => (
+            <Carousel.Slide key={index}>
+              <Card shadow="sm" padding="lg" radius="md" withBorder>
+                <Card.Section
+                  component="a"
+                  href={slide.href}
+                  style={{ height: "300px", overflow: "hidden" }}
+                >
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </Card.Section>
+              </Card>
+            </Carousel.Slide>
+          ))}
+        </Carousel>
+      </Container>
       <Container size="xl">
+        <Title
+          order={2}
+          c="#FFF"
+          my={10}
+          style={{ position: "relative", zIndex: 1 }}
+        >
+          Continue Watching
+        </Title>
         <Carousel
           align="start"
           slideSize="15%"

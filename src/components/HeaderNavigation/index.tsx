@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconSearch, IconSpaces } from "@tabler/icons-react";
+import { Login } from "../Login";
 
 const links = [
   { link: "/about", label: "Features" },
@@ -22,6 +23,7 @@ const links = [
 
 export function HeaderNavigation() {
   const [opened, { toggle }] = useDisclosure(false);
+  const [openedLogin, { open, close }] = useDisclosure(false);
 
   const items = links.map((link) => (
     <Anchor
@@ -34,8 +36,8 @@ export function HeaderNavigation() {
   ));
 
   return (
-    <header>
-      <div>
+    <header style={{ background: "#131313" }}>
+      <div className="container w-[970px] mx-auto py-3">
         <Group justify="space-between">
           <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
           <Group>
@@ -70,9 +72,12 @@ export function HeaderNavigation() {
               ]}
               visibleFrom="xs"
             />
-            <Button>Login</Button>
+            <Button radius={0} onClick={open}>
+              Login
+            </Button>
           </Group>
         </Group>
+        <Login opened={openedLogin} onClose={close} />
       </div>
     </header>
   );
