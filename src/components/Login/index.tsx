@@ -29,8 +29,13 @@ export const Login = (props: LoginProps) => {
         blur: 3,
       }}
     >
-      <TextInput mb={10} label="Email" placeholder="Email" />
-      <PasswordInput mb={10} label="Password" placeholder="Password" />
+      <TextInput radius={0} mb={10} label="Email" placeholder="Email" />
+      <PasswordInput
+        radius={0}
+        mb={10}
+        label="Password"
+        placeholder="Password"
+      />
       <Group justify="flex-end">
         <Anchor href="/forgot-password" style={{ fontSize: 12 }}>
           Forgot password?

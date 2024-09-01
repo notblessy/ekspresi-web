@@ -6,5 +6,5 @@ export default function Home() {
     <Box>
       <Title>Movies</Title>
     </Box>
-    );
+  );
 }
